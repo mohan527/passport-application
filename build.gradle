@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.passport'
+version = '1.0.0'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring Boot dependencies
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.4'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.4'
+    
+    // Database
+    implementation 'mysql:mysql-connector-java:8.0.26'
+    
+    // Lombok for reducing boilerplate
+    implementation 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+    
+    // Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.4'
+    testImplementation 'junit:junit:4.13.2'
+}
+
+application {
+    mainClass = 'com.passport.PassportApp'
+}
+
+task buildApp {
+    doLast {
+        println 'Building Passport Application...'
+    }
+}
